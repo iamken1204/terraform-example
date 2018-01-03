@@ -155,6 +155,14 @@ resource "aws_security_group" "sgWorker" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+
+    cidr_blocks = ["10.0.0.0/16"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -332,5 +340,53 @@ resource "aws_security_group" "sgAPI" {
 
   tags {
     Name = "sgAPI"
+  }
+}
+
+resource "aws_security_group" "sgRedis" {
+  name   = "sgRedis"
+  vpc_id = "${aws_vpc.astra.id}"
+
+  ingress {
+    from_port = 6379
+    to_port   = 6379
+    protocol  = "tcp"
+
+    cidr_blocks = ["10.0.0.0/16"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "sgRedis"
+  }
+}
+
+resource "aws_security_group" "sgBastion" {
+  name   = "sgBastion"
+  vpc_id = "${aws_vpc.astra.id}"
+
+  ingress {
+    from_port = 443
+    to_port   = 443
+    protocol  = "tcp"
+
+    cidr_blocks = ["220.130.186.71/32"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "sgBastion"
   }
 }

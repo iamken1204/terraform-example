@@ -12,5 +12,6 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids = [
     "${aws_security_group.sgOffice.id}",
     "${aws_security_group.sgStaff.id}",
+    "${aws_security_group.sgBastion.id}",
   ]
 }

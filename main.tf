@@ -1,19 +1,3 @@
-provider "aws" {
-  alias = "qa_tokyo"
-
-  region                  = "ap-northeast-1"
-  shared_credentials_file = "/Users/kettan/.aws/credentials"
-  profile                 = "astraqa"
-}
-
-provider "aws" {
-  alias = "prod_tokyo"
-
-  region                  = "ap-northeast-1"
-  shared_credentials_file = "/Users/kettan/.aws/credentials"
-  profile                 = "astraprod"
-}
-
 module "qa_tokyo" {
   providers = {
     aws = "aws.qa_tokyo"
@@ -48,4 +32,12 @@ module "prod_tokyo_cvgo" {
   subnet_goServiceC_ID         = "${module.prod_tokyo.subnet_goServiceC_ID}"
   cvgo_sqs_name                = "${var.cvgo_sqs_name}"
   db_subnet_group_default_NAME = "${module.prod_tokyo.db_subnet_group_default_NAME}"
+}
+
+module "prod_singapore_general" {
+  providers = {
+    aws = "aws.prod_singapore"
+  }
+
+  source = "./modules/prod/ap-southeast-1"
 }

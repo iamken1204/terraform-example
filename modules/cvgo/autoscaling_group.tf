@@ -99,8 +99,9 @@ resource "aws_autoscaling_group" "cvgo-asg" {
   launch_configuration = "${aws_launch_configuration.cvgo_asg_conf_.name}"
   max_size             = 50
   min_size             = 0
-  desired_capacity     = 1
-  enabled_metrics      = ["GroupStandbyInstances", "GroupTotalInstances", "GroupPendingInstances", "GroupTerminatingInstances", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupMinSize", "GroupMaxSize"]
+
+  # desired_capacity     = 1
+  enabled_metrics = ["GroupStandbyInstances", "GroupTotalInstances", "GroupPendingInstances", "GroupTerminatingInstances", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupMinSize", "GroupMaxSize"]
 
   # subnet IDs
   vpc_zone_identifier       = ["${var.subnet_goServiceA_ID}", "${var.subnet_goServiceC_ID}"]

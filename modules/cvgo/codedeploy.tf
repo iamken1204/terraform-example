@@ -9,7 +9,7 @@ resource "aws_codedeploy_deployment_group" "ASTRAJP" {
 
   autoscaling_groups = ["${aws_autoscaling_group.cvgo-asg.name}"]
 
-  auto_rollback_configuration {
-    enabled = false
-  }
+  # auto_rollback_configuration {
+  # enabled = false
+  # }
 }

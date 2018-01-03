@@ -22,7 +22,7 @@ resource "aws_elb" "cvgo-elb" {
     target              = "HTTP:8080/gl"
   }
 
-  instances                 = ["${aws_instance.cvgo_base.id}"]
+  # instances                 = ["${aws_instance.cvgo_base.id}"]
   cross_zone_load_balancing = true
   idle_timeout              = 60
 }

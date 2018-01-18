@@ -56,6 +56,16 @@ resource "aws_subnet" "api-a" {
   }
 }
 
+resource "aws_subnet" "api-b" {
+  vpc_id            = "${aws_vpc.astra.id}"
+  cidr_block        = "10.0.12.0/24"
+  availability_zone = "ap-southeast-1b"
+
+  tags {
+    Name = "api-b"
+  }
+}
+
 resource "aws_subnet" "worker-a" {
   vpc_id            = "${aws_vpc.astra.id}"
   cidr_block        = "10.0.21.0/24"
@@ -63,6 +73,16 @@ resource "aws_subnet" "worker-a" {
 
   tags {
     Name = "worker-a"
+  }
+}
+
+resource "aws_subnet" "worker-b" {
+  vpc_id            = "${aws_vpc.astra.id}"
+  cidr_block        = "10.0.22.0/24"
+  availability_zone = "ap-southeast-1b"
+
+  tags {
+    Name = "worker-b"
   }
 }
 
@@ -96,6 +116,16 @@ resource "aws_subnet" "streaming-a" {
   }
 }
 
+resource "aws_subnet" "streaming-b" {
+  vpc_id            = "${aws_vpc.astra.id}"
+  cidr_block        = "10.0.42.0/24"
+  availability_zone = "ap-southeast-1b"
+
+  tags {
+    Name = "streaming-b"
+  }
+}
+
 resource "aws_subnet" "mqtt-relay-a" {
   vpc_id            = "${aws_vpc.astra.id}"
   cidr_block        = "10.0.51.0/24"
@@ -103,5 +133,15 @@ resource "aws_subnet" "mqtt-relay-a" {
 
   tags {
     Name = "mqtt-relay-a"
+  }
+}
+
+resource "aws_subnet" "mqtt-relay-b" {
+  vpc_id            = "${aws_vpc.astra.id}"
+  cidr_block        = "10.0.52.0/24"
+  availability_zone = "ap-southeast-1b"
+
+  tags {
+    Name = "mqtt-relay-b"
   }
 }

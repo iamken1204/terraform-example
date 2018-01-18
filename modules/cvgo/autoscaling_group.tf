@@ -96,7 +96,7 @@ resource "aws_autoscaling_group" "cvgo-asg" {
   }
 
   name                 = "cvgo-asg"
-  launch_configuration = "${aws_launch_configuration.cvgo_asg_conf_.name}"
+  launch_configuration = "${aws_launch_configuration.cvgo_asg_conf.name}"
   max_size             = 50
   min_size             = 0
 

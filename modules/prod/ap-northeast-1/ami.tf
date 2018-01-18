@@ -10,5 +10,5 @@ output "cvgo_ami_ID" {
 }
 
 output "cvgo_ami_ID_asg" {
-  value = "ami-1760f771"
+  value = "ami-65c25903"
 }

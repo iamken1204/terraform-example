@@ -8,6 +8,7 @@ resource "aws_instance" "goapi" {
   subnet_id                   = "${aws_subnet.api-a.id}"
   associate_public_ip_address = true
   key_name                    = "genesis"
+  iam_instance_profile        = "GenesisAPI"
 
   vpc_security_group_ids = [
     "${aws_security_group.sgOffice.id}",

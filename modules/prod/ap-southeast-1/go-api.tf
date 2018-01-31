@@ -1,6 +1,6 @@
 resource "aws_instance" "goapi" {
   tags {
-    Name = "goapi"
+    Name = "[genesis] goapi"
   }
 
   ami                         = "ami-64542318"           # clean-base-golang1.9.2

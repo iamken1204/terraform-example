@@ -10,6 +10,7 @@ resource "aws_security_group" "sgOffice" {
     cidr_blocks = [
       "220.130.186.71/32",  # Astra
       "220.132.152.231/32", # Astra
+      "125.227.251.150/32", # Astra
     ]
   }
 
@@ -21,6 +22,7 @@ resource "aws_security_group" "sgOffice" {
     cidr_blocks = [
       "220.130.186.71/32",  # Astra
       "220.132.152.231/32", # Astra
+      "125.227.251.150/32", # Astra
     ]
   }
 
